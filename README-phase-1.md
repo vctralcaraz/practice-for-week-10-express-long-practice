@@ -39,8 +39,9 @@ The `express-async-errors` is not a middleware, but is useful for making
 sure that asynchronous middleware or route handlers will handle errors
 properly.
 
-Use `express-async-errors` in your server file. Refer to the readings if you
-have trouble with this.
+**RESEARCH TASK**: Use `express-async-errors` in your server file.
+Refer to the [express-async-errors npm docs] to see how to add it to your
+server files.
 
 Use the `GET /test-error` endpoint (code provided to you) to test to see if you
 successfully used it. The response for the `GET /test-error` endpoint should be
@@ -50,3 +51,4 @@ an error message formulated by Express with the error message of
 [http://localhost:5000/static/images/dog1.jpg]: http://localhost:5000/static/images/dog1.jpg
 [Express.static]: https://expressjs.com/en/api.html#express.static
 [Express.json]: https://expressjs.com/en/api.html#express.json
+[express-async-errors npm docs]: https://www.npmjs.com/package/express-async-errors
