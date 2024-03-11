@@ -86,6 +86,7 @@ const deleteDog = (req, res) => {
 
 // Your code here
 const express = require('express');
+const foodsRouter = require('./dog-foods');
 const router = express.Router();
 
 router.get('/', getAllDogs);
@@ -93,5 +94,7 @@ router.get('/:dogId', validateDogId, getDogById);
 router.post('/', validateDogInfo, createDog);
 router.put('/:dogId', [validateDogId, validateDogInfo], updateDog);
 router.delete('/:dogId', validateDogId, deleteDog);
+
+router.use('/:dogId/foods', validateDogId, foodsRouter);
 
 module.exports = router;

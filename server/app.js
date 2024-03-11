@@ -3,6 +3,7 @@ require('express-async-errors');
 require('dotenv').config();
 
 const dogsRouter = require('./routes/dogs');
+const foodsRouter = require('./routes/dog-foods')
 
 const app = express();
 
