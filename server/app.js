@@ -1,5 +1,6 @@
 const express = require('express');
 require('express-async-errors');
+require('dotenv').config();
 
 const dogsRouter = require('./routes/dogs');
 
@@ -45,7 +46,18 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   console.log(`${err.statusCode} ${err.message}`);
+  const statusCode = err.statusCode || 500;
+
+  let errorObj = {
+    message: err.message || `Something went wrong`,
+    statusCode,
+  }
+  if(process.env.NODE_ENV === 'development') {
+    errorObj.stack = err.stack
+  }
+
+  res.status(statusCode).json(errorObj);
 });
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => console.log('Server is listening on port', port));
